@@ -1,6 +1,6 @@
 FROM ruby:2.5.3
 
-ENV APP_ROOT /usr/src/project
+ENV APP_ROOT /usr/src/project_name
 
 WORKDIR $APP_ROOT
 
@@ -9,14 +9,14 @@ RUN apt-get update && \
                        mysql-client \
                        postgresql-client \
                        sqlite3 \
-                       --no-install-recomennds && \
+                       --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile $APP_ROOT
 COPY Gemfile.lock $APP_ROOT
 
 RUN \
-  ecno 'gem: --no-document' >> ~/.gemrc && \
+  echo 'gem: --no-document' >> ~/.gemrc && \
   cp ~/.gemrc /etc/gemrc && \
   chmod uog+r /etc/gemrc && \
   bundle config --global build.nokogiri --use-system-libraries && \
