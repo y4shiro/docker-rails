@@ -1,6 +1,6 @@
 FROM ruby:2.5.3
 
-ENV APP_ROOT /usr/src/project_name
+ENV APP_ROOT /usr/src/project
 
 WORKDIR $APP_ROOT
 
